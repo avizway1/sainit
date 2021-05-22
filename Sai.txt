@@ -1,0 +1,201 @@
+AWS Is a cloud service provider : 
+
+
+Cloud Computing : NIST (National instiyute of standard and technology)..  : 
+
+https://www.nist.gov/system/files/documents/itl/cloud/cloud-def-v15.pdf
+
+Servers, Applications, Network, Database, storage..!!
+--> AWS, Azure, GCP, orclae cloud, Rackspace, virtusteam, fujitsu, alibaba, tencent cloud, cloud9, Dell bhoomi..
+
+--> On-demand : 
+--> Broadnetwork access and High availability : 
+--> Resource pooling : 
+--> Rapid elasticity : (Scale up and Scale down)
+--> Measured Services : 
+
+Tenancy : 
+Dedicated tenancy
+Shared tenancy
+
+Host Based Hypervisor :   H/w --> OS --> Virtualisation s/w --> o/s , o/s
+Bare Metal Hypervisor :  H/W --> Hypervisor --> O/s, o/s
+
+
+
+Deployment Models of the CLoud COmputing : 
+
+Public CLoud : Open for everyone.. : AWS, Azure, GCP..  Maintenace : AWS.. 
+
+Private Cloud : Dedicated for one Organisation.. : Maintenace: Your org / 3rd party..!!
+
+Hybdrid Cloud : COmbination of multipe CLoud platforms : 
+aws + azure : yes
+aws + Onpremise : yes
+
+COmmunity Cloud : Group of org build the infra, those group of org use that infra.. 
+
+__
+
+Service Model of the CLoud COmputing : 
+
+SaaS : Lightsail
+PaaS : Beanstalk
+IaaS : ec2
+
+
+
+How to Create an AWS Account.!!
+
+https://aws.amazon.com/free
+
+Step 1 : Provide Email, Password, COnfirm apssword, Account Name.
+
+Step 2 : COntact Information
+Name, Address, Ph number.
+
+Step 3 : Payment information : CC/DC : Visa, master, AMEX, Discovery
+2 INR.. Refund back..
+
+Step 4 : Identity Verification : Phone verification and email verification.
+Phone : Enter ph no , Call me now --> XXXX --> ANswet the call and enter XXX pin incall..
+
+Step 5 : CHoose Support Plan  : BASIC
+
+1. Account and Biling related : 24x7 support for all SP
+2. Service limit increase : 24x7 support for all SP
+3. Technical Support : Depends on SP
+
+Basic SP : Free, No technical Support.. 7 core area checks on Trusted advisor
+AWS Developer Forums, Knowledgebase articles (KBs)
+
+Developer SP : 29$/Month.. 12-24 Local business hours AWS Support Associate.. 
+7 core area checks on Trusted advisor.. Unlimited tickets / Primary contact can raise ticket..
+Severity :
+General guidance : < 24 Hrs
+System impaired : < 12 Hrs
+
+Business SP : 100$/Month.. 24x7 Phone, email, chat support from AWS Engineer.. 
+Full trusted advisor checks.. Unlimited tickets/ Unlimited user can raise ticket..
+Severity : 
+General guidance : < 24 Hrs
+System impaired : < 12 Hrs
+Production system impaired : < 4 hrs
+Production system down : < 1 Hr
+
+Enterprise SP : 15k/Month.. 24x7 Phone, email, chat support from Sr. AWS Engineer.. 
+Full trusted advisor checks.. Unlimited tickets/ Unlimited user can raise ticket..
+--> Operational and Architectural reviews
+--> Dedicated TAM (technical account Manager)
+Severity : 
+General guidance : < 24 Hrs
+System impaired : < 12 Hrs
+Production system impaired : < 4 hrs
+Production system down : < 1 Hr
+Business Critical system down : < 15 min
+
+Review. 
+
+Login to aws account.
+
+_______________________________________________________________________________________
+D: 22/05/2021
+
+Enabled MFA on root account. 
+--> Virtual MFA
+--> u2f key / yubykey 
+--> Hardware mfa
+
+Root user : Unrestricted access on aws account. (Closing account, account transfer, Support plan change)
+
+IAM : Identity and access management : used to perform day to day activities.
+
+
+s3 : Simple storage service : AWS version of gdrive. 
+ec2 : Elastic compute cloud :  We can launch and run servers : 
+
+
+Least privilages mechanism : Provide the access to perform his job/duties.
+
+avinash : s3 full access : IAM : Share his cred
+anudeep : ec2 full access : IAM : 
+ : TL : Admin access : 
+
+IAM User creation : 
+
+Step 1 : Choose User name 	: sai
+
+Step 2 : Choose access type	: 
+
+--> Management console : GUI : un, pwd & sign-in : Browser
+--> programatic access : CLI : Accesskeyid & Secretaccesskey : sdk, cdk, api, 3rd party
+
+Step 3 : Allocate permissions
+
+--> Create a group, Add permissions at group level.. Add this user to group.
+--> COpy settings from another IAM user.
+--> Attach permissions on user.
+
+Policy : Set of permissions on our aws account.
+
+Step 4 : Add Tags
+
+Step 5 : review and create
+
+
+Birth settings : 
+--> MFA
+--> Setup strong password policy for IAM users
+
+
+Policy : 
+--> AWS Managed policy : We cannot delete
+--> AWS Managed - Job function : we cannot delete
+--> Customer Managed policy : 
+
+** DENY always have highest priority. 
+If you allow 100 time, but denied 1 time = DENY
+
+
+Req: Provide access on S3 and ec2 services.
+
+Requirement : IAM user with Administrator access.. but not on s3.. 
+
+
+Implicit allow : What are all the services access we provide, he can access only those services. Remaining all services will deny automatically.
+
+Explicit Deny : What are the service set as deny, that will be denied.. If you allow at any level (user, group, resurce), Deny will take effect.
+
+Policy simulator : It can simulate IAM users permissions.
+
+Cloudtrail : Logging service in AWS. It stores last 90 days activities. 
+
+Credentials Report : Report on When user last logged in, When user created, password last used, password reset date.
+
+arn : Amazon resource name : arn name gives uniqueness to our aws resources.
+
+
+Task 1 : Create an IAM user with S3 fullAccess and login as IAM user and verify his access on S3, ec2 and iam. 	Exp: He should able to see only s3 w/o error.
+
+___
+Task 2 : Create an IAM user, with "AdministratorAccess". (use the same user throughut course).
+
+Task 3 : Login as task2 user.. And try to access "billing Information", It will show error/access denied.
+Provide "billingaccess" to IAM user.
+___
+
+Task 4 : Create a new IAM User with S3 FullAccess.. 
+Create a Policy to activate MFA himself.
+
+
+
+
+
+
+
+
+
+
+
+
+
