@@ -187,6 +187,120 @@ ___
 Task 4 : Create a new IAM User with S3 FullAccess.. 
 Create a Policy to activate MFA himself.
 
+___________________________________________________________________________________
+Permissions Boundary : We can setup maximum permissions for an IAM user. 
+
+
+Inline Policy : Policy for one single resource only. We cannot reuse this policy.
+
+
+_______________________________________________________________________________________
+
+S3: Simple Storage Sevice : 
+
+--> Object based storage : We can store flat files / any files.
+--> We store data in "Buckets"
+--> Bucket nothing but a folder with unique name.
+--> We can upload objects into bucket.
+--> We can create 100 buckets in s3 platform by defaultly. (TO increase count raise service limit increase ticket)
+--> Bucket naming Limitation :
+	--> Should not start with . / Should not end with . / no adjesent ..
+	--> Only Small characters / No Capital letters
+	--> bucket name should not resemble IP address format.
+
+--> S3 have unlimited data.
+--> S3 supports max Object size : 5 TB, Min Obj size: 0/1 byte
+
+Publicly accessable S3 Object URL : 
+https://s3.regioncode.amazonaws.com/bucketname/objectname
+
+Virtual Path: Works when we don't have . in the bucket name
+
+https://bucketname.s3.regioncode.amazonaws.com/objectname
+https://bucketname.s3.amazonaws.com/objectname
+
+
+To make any object public, We need to Modify the bucket level settings, then object level settings.
+
+Block all public access : --> OFF
+Go to object promperty --> Make Public. 
+
+___
+
+S3 Standard : Default storage class.. Designed to store Frequently accessed data.. 
+Data will be available immediately.. 
+Data Spread across >= 3 AZs..
+Availa: 99.99% , DUrability : 99.999999999% (11 9's)
+
+Standard IA : Designed to store less freq accessed data.. 
+Data will be available immediately.. 
+Data Spread across >= 3 AZs..
+Availa: 99.9% , Durability : 99.999999999% (11 9's)
+
+OneZone-IA : Designed to store less freq accessed data.. 
+Data will be available immediately.. 
+Data Spread across 1 AZs..
+Availa: 99.5% , Durability : 99.999999999% (11 9's)
+
+GLacier : Designed to store data for longer durations.. FOr Archiving the data..
+Data will not be avaibale immedetaly. We need to initiate "Restoration". 
+Restoration takes MINUTES - HOURS.
+Data Spread across >= 3 AZs..
+Availa: 99.99% , Durability : 99.999999999% (11 9's)
+
+Glacier Deep archieve : Designed to store data for longer durations.. FOr Archiving the data.. Data will not be avaibale immedetaly. We need to initiate "Restoration". 
+Restoration takes Min HOURS.
+Data Spread across >= 3 AZs..
+Availa: 99.99% , Durability : 99.999999999% (11 9's)
+
+Interlligent Tier : When we have unknown access patterns for our data.. No idea on how freq we access data.. 
+Data Spread across >= 3 AZs..
+Availa: 99.9% , Durability : 99.999999999% (11 9's)
+
+RRS : Redused Redunancy storage : Not used : Chances to loss the data is more.. it cost more than S3 standard.. Easily reprodusable data we can store here.. Logs/thumbnails.. 
+Durability is Justn 99.99% only.. 
+
+_____
+
+Retrieval tier
+
+Bulk retrieval : Typically within 5-12 hours.
+Standard retrieval: Typically within 3-5 hours.
+Expedited retrieval : Typically within 1-5 minutes when retrieving less than 250 MB.
+
+_____
+
+FREE TIER ELIGIBILITY : 5 gb Standard storage.. 
+2000 PUT Operations, 20,000 GET Operations comes under free tier.. / Month
+
+_______________________
+
+Amazon Segrigated entire world into regions. They named all the regions.
+
+Region : geoGraphical location / Physical location.  25 Regions (May 2021)
+Mumbai : ap-south-1
+Hyd : ap-south-2
+N V : us-east-1
+
+Availability ZOne / AZs : Data Center / Combination of Multiple DCs.. Our resources actually runs here (instance, db).. 80 AZs..
+--> Every Region contains Min of 2 AZs. 
+
+Mumbai : ap-south-1a, ap-south-1b & ap-south-1c
+hyd : ap-south-a2, 2b & 2c
+
+Edge locations : CDN Endpoint / Cache locations.. 230+ Edge locations.. 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
