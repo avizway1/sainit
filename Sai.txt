@@ -290,6 +290,102 @@ hyd : ap-south-a2, 2b & 2c
 
 Edge locations : CDN Endpoint / Cache locations.. 230+ Edge locations.. 
 
+_______________________________________________________________________________________
+D: 24/05/2021
+
+Versioning : 
+--> We can track all changes happening on this file.
+--> If we accidentally deleted the object, we can get it back if versioning is enabled.
+
+Most recent uploaded object called as "Current Object / Latest object"
+
+(version: hide)
+When versioning is enabled, If we delete the object, we will get the "Delete Marker", Delete the Delete marker to get this object back to s3 bucket.
+
+(version: show)
+Whatever we deletes, we won;t get any delate marker. Object deletes permanently.
+
+
+delete : Create a Delete Marker.
+permanently delete : THis object deletes permanently, without delete marker.
+
+_____
+LCR : LifeCycle Management Rule : 
+
+expire : We will get a Delete marker.
+
+
+_____
+
+CRR/SRR : 
+--> Source bucket and Destination bucket should enabled with Versioning.
+--> If source bucket and destination bucket is in same region : SRR (Same region replicaiton)
+--> If source and destination buckets are in diff region : CRR (Cross region replication).
+
+RTC : Replication Time Control : Boost up the replication process. Max of data replicates within 15 min. 
+
+--> Existing objects won't replicate to destination bucket. All future/subsequent uploads will replicate to destination bucket.
+
+______
+Create a Billing Alarm to get notification when any of the aws resource start costing us.
+Billing preference --> Receive Billing Alerts -->  Manage Billing Alerts  --> create a billing alarm.
+
+________________
+
+Intelligent tier :
+
+Archive Access tier : When enabled, Intelligent-Tiering will automatically move objects that haven’t been accessed for a minimum of 90 days to the Archive Access tier.
+
+Deep Archive Access tier : When enabled, Intelligent-Tiering will automatically move objects that haven’t been accessed for a minimum of 180 days to the Deep Archive Access tier.
+
+______________
+
+Server access logging : Enable logging for this bucket. 
+
+______________
+
+Event : When any specific operation happened on our s3 bucket, we can trigger another services.
+
+--> SNS : Simple Notification Service
+--> SQS : Simple Queue Service
+--> Lambda 
+
+Step 1 : create an SNS topic, Add subnscribers to SNS topic. (Set permissions to everyone).
+Step 2 : Configure Events via SNS.
+
+_________________________________________
+
+Task 1 : ENable Versioning, Explore versioning.
+
+Task 2 : Configure LCR to Transit all Current Versioned object "S3-Standard" --> Standard-IA after 10 Days --> Delete after 20 Days.
+100 Days --> Delete after 200 Days.
+
+Previous versioned objects : S3-Stanard --> Delete after 1 Day.
+
+Task 3 : Create "bucket 1" and "bucket 2" in Mumbai region.. Configure the Replication between these buckets.
+
+Task 4 : Create an SNS topic, add email as subscribers.. COnfigure "PUT" Event notification on s3 bucket.
+
+_________________________________________
+
+4 PM / 5 PM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
