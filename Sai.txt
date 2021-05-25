@@ -423,15 +423,122 @@ Inventory configurations : You can create inventory configurations on a bucket t
 
 metadata : data about the data. Using Tags we can provide metadata to any of the resource in AWS.
 
-
-Encryption
-Bucket Policy
-
-
 Task : Create a static website and deliver. 
 https://www.free-css.com/free-css-templates
 
 Task 2 : Try Object lock feature.
+
+________________________________________________________________________________________
+
+D: 25/05/2021
+
+Encryption : 
+
+--> In-Transit Encryption
+	--> S3 Uses SSL / TLS Certificates. THis enabled by defaultly.
+
+--> Server Side Encryption (SSE) / At-Rest 
+	--> SSE - S3 : Key material generated and managed by S3 platform. Whoever have valid access on s3 platform they can decrypt the data.
+
+    --> SSE - KMS (Key Management Service): 
+	--> aws/s3 : (Default Master Key / DMK) : Key material generated and managed by KMS Service. Whoever have valid access on s3 platform they can decrypt the data.
+	--> Customer managed keys (CMK) : Key material generated and managed by KMS Service. We need to provide required permissions on Encryption key to IAM users/Roles, then only they can decrypt the data. (NO FREE TIER ELIGIBILITY : 1$/Month)
+
+	--> SSE - C (Customer Provided) : We/customer need to generate the key material and need to upload the key material to KMS service, then we can use as regular kms key. We need to provide required permissions on Encryption key to IAM users/Roles, then only they can decrypt the data. (NO FREE TIER ELIGIBILITY : 1$/Month)
+
+
+Client SIde Encryption : When client don;t want to send any unencrypted data to any of the outside env, We can use this CSE. AWS is not responsible for this CSE. (truecrypt, securedata)
+
+_____
+KMS Defaultly generates the Key for the services we are using (Ex: aws/s3, aws/ebs, aws/efs). These keys we cannot delete, It is managed by AWS KMS service.
+
+Step 1 : Symmetric 
+Symmetric : A single encryption key that is used for both encrypt and decrypt operations
+Asymmetric : A public and private key pair that can be used for encrypt/decrypt or sign/verify operat.
+
+Step 2: provid name and descryption.
+
+Step 3: Define key administrative permissions. 
+	--> Who can administrate this encryption key. (Delete, Provide permission to users, key disable/enable).
+
+Step 4 : Define key usage permissions
+	--> Who can use this key. Who can decrypt the data. 
+
+Step 5 : Review and create.
+
+___________
+
+Bucket Policy : 
+
+Avinash_T : S3 Full Access : 
+testuser : S3 Full Access :
+
+1avinash : testuser should not get any chance to upload the data. / Deny "Upload/PUT" for testuser to 1avinash bucket..!!!
+
+--> Bucket Policy generator: https://awspolicygen.s3.amazonaws.com/policygen.html
+
+effect : ALLOW / DENY	: Deny
+Principal : For what IAM user ARN : arn:aws:iam::518084852393:user/testuser
+Actions : put Object
+Resource ARN : On what s3 bucket : arn:aws:s3:::1avinash/*
+
+
+/*	--> If it is an Object level operation.
+	--> If it ia a bucket level operation.
+
+_________
+
+AWS Import / Expore : When we have large set of data to upload/download from AWS, we can use AWS own devices. AWS Snowfamily devices.
+
+AWS Snowcone : 8 TB
+AWS Snowball edge : 40 TB - 100 TB
+AWS Snowmobile : PB Scale container
+
+
+digiglobe => Snowmobile 
+1 PB = 1 gbps --> 20-22 Yrs to uplaoad the data
+Within 3 Months We can migrate 1 PB data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
