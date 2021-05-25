@@ -499,10 +499,20 @@ digiglobe => Snowmobile
 1 PB = 1 gbps --> 20-22 Yrs to uplaoad the data
 Within 3 Months We can migrate 1 PB data
 
+_____________________
 
+User1 : S3 FUll ACCESS
+User2 : S3 Full Access
 
+"Sai-Bucket"
 
+FOr USer1 --> DENY "Delete Bucket", "Deny PUTObject", "Deny view/putBUCKETPolicy"
+For User2 --> He should able to upload the data, Should able to view bucket policy.
 
+____
+
+You have multiple buckets in S3 Platform.. You want to Allocate "user1bucket" to "user1" only... 
+https://aws.amazon.com/premiumsupport/knowledge-center/s3-console-access-certain-bucket/
 
 
 
