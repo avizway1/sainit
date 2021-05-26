@@ -178,7 +178,7 @@ arn : Amazon resource name : arn name gives uniqueness to our aws resources.
 Task 1 : Create an IAM user with S3 fullAccess and login as IAM user and verify his access on S3, ec2 and iam. 	Exp: He should able to see only s3 w/o error.
 
 ___
-Task 2 : Create an IAM user, with "AdministratorAccess". (use the same user throughut course).
+Task 2 : Create an IAM user, with "AdministratorAccess". (use the same user througout course).
 
 Task 3 : Login as task2 user.. And try to access "billing Information", It will show error/access denied.
 Provide "billingaccess" to IAM user.
@@ -513,6 +513,111 @@ ____
 
 You have multiple buckets in S3 Platform.. You want to Allocate "user1bucket" to "user1" only... 
 https://aws.amazon.com/premiumsupport/knowledge-center/s3-console-access-certain-bucket/
+
+
+____________________________________________________________________________________________________________________________________________________________________
+
+D: 26/05/2021
+
+
+S3 Performance : 
+--> If we are storing all the data in an s3 bucket.. 3500 PUT/Sec... 5500 GET/Sec.. 
+
+These value applicable per prefix (Folder):
+
+Per second 35,000, Create 10 prefixes and upload the data..
+
+Bucket/FOlder1 -->  3500 PUT/Sec... 5500 GET/Sec..
+bucket/Folder2 -->  3500 PUT/Sec... 5500 GET/Sec..
+
+Increase the randomness on the object names for better performance. 
+Use folder/Prefixes in s3 to get maximum performance.
+
+_____
+
+Read after writre consistenacy for put of new objects.
+Eventual consistency for overwrite of PUTS and Delete. (it will take some seconds to delete the backend copies).
+
+______________________________________________________________________________________________________________________________________________________________________
+
+
+EC2 : Elastic Compute Cloud : Where we launch our instances.
+
+Instance = Server (It contains OS, CPU, RAM/Memory, Storage, Network)
+
+Traditional Method : We need to purchase the serverfirst.. Server Rack.. Power connectivity, Cooling systems, Physical security, Network devices.. 
+--> Install Operating system, APplications/webservers.. Deploy your code --> Application deliver to end customer.
+--> Once you done with the requirement, what you do with the resources..????
+
+--> Launch an ec2 instance --> COnnect to Instance --> Deploy your code --> Deliver your application.
+--> Once you done with the requirement, Terminate the respource and pay for the duration you have used. (pay-as-you-go).
+
+
+On-Demand ec2 instances : When we don't have stable workloads, If you want to test your application for the first time, Non predictable workloads.. 
+Price: /Hr basis.. (/Sec basis also)
+
+Reserved ec2 instances : If we have predictable workloads.. If you want to run application for longer durations with aws.. COst less compared to On-demand.
+Duration: 1 yr / 3 yrs.
+
+	Standard RI : We cannot change the configuration.
+	COnvertable RI : We can chnage the configuration during the period.
+	Schedured RI : When we have persistant requests / Repeated requests with in duration (Ex: Weekly 40 hrs.. MON-FRI, Monthly 1-15th)
+
+Pricing : Full Upfront : Need to pay 100% amount as onetime. No need to pay again.
+	  Partial upfront : Pay 30-50% as onetime cost, Pay remaining amount on monthly basis based on your usage.
+	  No upfront : No need to pay anything as upfront. Pay everything monthly basis.
+
+
+Spot ec2 instances : If we have flexible start and stop durations, then only we choose spot instances. IF price is increased by AWS, we lost our ec2 instance. We don't run production worklods / Imp data on this spot instances.
+
+1$/hr.. Hey aws, your cost is too high,, if you are okay to give this instance at 0.50$ from today to 30/05/2021. i will take this instance.. : BID to aws.
+--> 
+if your bid price is more than aws spot price or equal to aws spot price, we will get ec2 instance.
+
+--> If Price is increased and AWS terminated our instance, we need to pay for only completed hours, not for the partial hours.
+--> If Price is Not increased and YOU terminated our instance, we need to pay for total duration.
+
+1 Hr 30 Min : YOu teminated : 1 Hr 30 Min
+1 hr 30 Min : AWS terminated : 1 Hr
+
+FREE TIER : 750 Hrs/Month with t2.micro WIndows Instance
+750 Hrs/Month with t2.micro Linux Instance
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
