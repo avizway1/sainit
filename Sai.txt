@@ -583,11 +583,83 @@ if your bid price is more than aws spot price or equal to aws spot price, we wil
 FREE TIER : 750 Hrs/Month with t2.micro WIndows Instance
 750 Hrs/Month with t2.micro Linux Instance
 
+__________________________________________________________
 
 
+Step 1 : Choose an AMI (Amazon machine Image)		: Operating System
+
+Step 2 : Choose Instance type (vCPU, Memory)		: COnfiguration
+
+Step 3 : COnfigure additional settings
+
+--> No of req instances, IAM Role, VPC, Userdata 
+--> Shutdown behavior : What should happen when we choose shutdown option at OS level : STOP / Terminate.  : STOP.
+--> Enable termination protection : ENABLE
+
+Step 4 : Choose the STorage				: Storage for instance
+
+Step 5 : Add required Tags (Key and Value)
+
+Step 6 : Choose the Security Group 			: Firewall at instance level.
+
+Windows : RDP (Remote Desktop Protocol) : 3389 : 
+Linux : SSH (Secure Shell) : 22
+http : Hypertext transfer protocol : 80
+https : Secure over http : 443
+
+Custom : Any network IP address
+Anywhere : 0.0.0.0/0
+my IP : Currently connected network public IP address. 
+
+CLient Network IP : 202.153.35.250/32
+
+Step 7 : Review and launch instance using a Keypair (.pem)
+
+Keypair works with Encryption Decryption mechanism. 
+--> AWS Keeps the Public Key and it copy the public keyin our dc2 instance.
+--> We will have Private Key. If you want to get the password to get connect to the instance, Browse the "privatekey", then only we will get Password.
 
 
+--> EC2 is a Region specific service. 
+WIndows Instane Launch: 
 
+t2.micro : Only t2.micro comes under free tier eligibility (1 vCPU, 1 RAM)
+
+______
+
+
+General Purpose : Stable/balanced performance of compute, memory and network resources.
+Type : t2, t3, m5
+
+Compute Optimized : We will get more CPU performances from these instances. We will have high perf processors in these instances.
+Type : c4, c5, c6  (Compute / CPU)
+
+Memory Optimized : We will get more RAM perf. Workloads required to process large set of data via memory.
+Type : r4, r5, r6, x1, z1 (RAM)
+
+GPU Optimized / Accelerated computing : We will get more graphic processings, Efficient for data pattern matching, High level gaming.
+Type : p2, p3, p4, g3, g4, f1
+
+Storage optimized : we will get more Storage/ Hard Disk performance. FOr the application required more IOPS, we use this types.
+Type : d2, d3, i3
+
+___________________________
+
+To Connect to Windows Instances : 
+
+Windows : Open "run" --> Type "mstsc" (Microsoft Terminal Service console) --> Enter.
+
+MacBook : 
+
+Public Ip address : unique across the globe. : Always use Public IP to connect.
+Private ip address : unique with in the network.
+
+--> When we connect to the instance, We can Setup customPassword, then we no need to use the keypair.
+
+
+Task : Launch a Windows Instance, COnnect to it, Change the Wallpaper, Setup custom password.. Disconnect from the instance. 
+Try to login to ec2 instance using "Keypair" given password.. Working or not..???
+After connecting to instance, verify you have all data / wp or not..???
 
 
 
