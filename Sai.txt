@@ -771,65 +771,70 @@ Place all your webdata/webpages : C:\inetpub\wwwroot
 Security Groups..  Open port 80 : http.. 
 
 --> Changes to security group takes effect immediately.
+_________________________________________________________________________________________
+
+D: 28/05/2021
+
+snapshots : 
+--> AWS uses s3 platform to store the snapshots. (We cannot find these snapshots in our s3 buckets).
+--> Snapshots are point-in-time copies.
+
+1. DO you want to configure backup for Entire instance (Including all volumes).
+2. DO you want to take backup for individual ebs volumes.
+
+DLM : Data Lifecycle Manager : To automate the Snapshot creation for our ebs volumes. 
+--> We can take backup of individual ebs volumes / Instances.
+--> We cannot share the default encryption snapshots with any aws acocunts/ we cannot make it public.
+--> If we have a snapshot with CMK (Customer managed keys), We can share it with Another AWS account user.. But you need to share the Customer managed ebcryption keys. We cannot make it public.
+
+For NonProd : Retention period : 14 Days
+For Prod : Retention period : 1 Month
+
+__
+
+Golden AMI : Customised AMI (Amazon Machine Image) : OS
+
+Requirement : 10 ec2 instance.. CUstom Wallpaper.. IIS/webserver.. Putty.. Internal application.. Local users.. With Custom Password..!!!
+
+CIS : Centre for internet security : Standard for every OS.!! : 800-1000 pages doc for every os.
+
+Plain ec2 instance --> Perform all customisation --> Golden AMI (template)
+
+GAMI/Template --> how many instance we launch, we will get all the customized settings.
+
+_______________________________________________________________
+
+Requirement : 10 ec2 instance.. CUstom Wallpaper.. IIS/webserver.. Putty.. Internal application.. Local users.. With Custom Password..!!!
+
+Recommended : Stop ec2 instance, before taking Golden AMI. (not mandatory)
+
+--> GoldenAMIs will have SNapshots in backend. We cannot delete these snapshots.
+
+
+You have an ec2 instance in Mumbai region, Same need to copied to another region..!! 
+--> Create a GAMI of Mumbai region instance, Copy the AMI to desired region.
+
+You have an ec2 instance in Account 1, Same need to copied to Account 2..!! 
+--> Create a GAMI of Account 1 instance, Copy the AMI to desired Account 2. (From what region (acc 1) you are sharing, in same region it will copy in acc 2)
+
+We can make these GAMI public.
+
+____
+
+Task : Create a DLM policy to take a backup copy of an ec2 instance, which contains tags as mentioned. and backup retention should be 1 Day. Take backup for everyone hr.
+
+Key 		: Value
+Backup_job 	: Application X
+
+Task 2 : create a GAMI, CUstom Password, Custom Wallpaper, Install IIS, Copy some data, Have Additional Volume..
 
 
 
+https://www.udemy.com/course/linuxwithavinash/?couponCode=MAY1AVINASH
 
+https://www.udemy.com/course/gitbyavinash/?referralCode=F7D62CDB4D61EADE1CC7
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+https://www.udemy.com/course/jenkinswithavinash/?couponCode=MAY1AVINASH
 
 
 
