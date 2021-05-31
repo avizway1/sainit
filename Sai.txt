@@ -917,23 +917,9 @@ Task 2 : Task : Launch a linux ec2 instance and make it as webserver, deliver th
 <h1> Any text </h1>
 </html>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ____________________________________________
+
+D: 31/05/2021
 
 lsblk		--> List block based devices
 
@@ -977,14 +963,16 @@ _______________________
 
 GoldenAMI on Linux : 
 
-
 How to recover a Linux instance, if we lost Keyapir..!!!
 Ans : Choose the Instance --> Create a GAMI --> Launch from GAMI with New Keypair.
 
 
+Task 1 : Launch linux ec2 instance with 8gb root volume. Add additional "1 gb" volume to ec2 instance and make it available at OS level.
 
+Task 2 : Increase the size of the "1 gb" volume to "2 gb" we used in task 1, make it available.
 
-
+Task 3 : Install webserver is Linux instance, Create a golden AMI of the linux instance. 
+While launching instance from goldenAMi, In final step, choose a new keypair. try to login to instance with both the keypairs. 
 
 
 
