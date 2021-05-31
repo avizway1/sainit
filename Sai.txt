@@ -828,14 +828,94 @@ Backup_job 	: Application X
 
 Task 2 : create a GAMI, CUstom Password, Custom Wallpaper, Install IIS, Copy some data, Have Additional Volume..
 
-
-
 https://www.udemy.com/course/linuxwithavinash/?couponCode=MAY1AVINASH
 
 https://www.udemy.com/course/gitbyavinash/?referralCode=F7D62CDB4D61EADE1CC7
 
 https://www.udemy.com/course/jenkinswithavinash/?couponCode=MAY1AVINASH
 
+_______________________________________________________________________________________
+
+D: 29/05/2021
+
+How to launch and Connect to Linux ec2 instance.
+
+Opensource : We can see how prog working, Modify the prog working structure, We can share it, We can use for any purpose. --> Amazon Linux 2  (Cent OS / Redhat)
+
+Step1 : Choose AMI : Amazon Linux 2 AMI
+Step2 : CHoose t2.micro
+Step 3 : Additional Configurations 
+Step 4 : Choose volume (8 gb volume)
+Step 5 : Add Tags
+Step 6 : Configure the Security Groups
+
+	Linux : SSH (Secure Shell) : Port 22 : (Anywhere/custom/myip)
+
+Step 7 : create a newkeypair and launch instance. (.pem)
+
+How to connect to Linux Instance.
+
+Windows OS Users : 
+Option 1 : Install "Openssh" in windows laptop, use "Command Prompt". (.pem)
+Option 2 : DOwnload and run "Putty" application. Putty WOn;t support .pem format file, So 	convert the .pem to .ppk ("PuttyGen")
+
+Mac / Linux OS : We can use Default "terminal". No additional s/w required.
+
+--> Permisisons Error / Permissions are too open : chmod 400 Keypair.pem
+
+_______________________________________________________________________________________
+
+Linux Instances : Default username : ec2-user  / redhat / ubuntu
+
+whoami		--> tels us as what user we are working.
+sudo su		--> Switch to root user
+exit		--> Exit from root user to ec2-user
+
+ls		--> List the files/folders
+ls -a		--> List all including hidden files
+pwd		--> Print working directory
+mkdir		--> Create a Directory/Folder
+touch 		--> o bytes file/ plain file
+cd		--> Change directory
+
+copy and paste :  cp
+cut and paste  :  mv
+
+VIM Editor : 
+
+vim filename	--> Open this file in VIM editor
+
+Press I		--> INSERT Mode
+Press ESC	--> ReadOnly Mode
+:wq		--> Write and Quit (Write changes to file and quit the editor)
+:q!		--> Quit the Editor without writing the changes
+__
+
+Req: Make this linux Instance as Web Server (Apache).
+
+rpm : Redhat package manager
+yum : Yellowdog Update manager
+
+yum install httpd -y
+service httpd status			--> httpd webserver service status
+service httpd start/stop/restart
+chkconfig httpd on			--> Makes httpd as logon service.
+
+path : /var/www/html/
+
+cd /var/www/html/
+
+Tool to Move the files to amazon linux ec2 instance : WinSCP
+________________________________________________________________________________________
+
+
+Task 1 : Launch Amazon Linux 2 Instance, Connect to the instance. 
+Task 2 : Task : Launch a linux ec2 instance and make it as webserver, deliver the custom webpage.
+
+<html>
+<title> Site </title>
+<h1> Any text </h1>
+</html>
 
 
 
@@ -847,6 +927,59 @@ https://www.udemy.com/course/jenkinswithavinash/?couponCode=MAY1AVINASH
 
 
 
+
+
+
+
+
+
+____________________________________________
+
+lsblk		--> List block based devices
+
+df -Th		--> List the available volumes
+
+/dev/xvda1	--> root volume (/)
+/dev/xvdf	--> new Volume name 
+
+In windows OS, we mount new volumes to drive letters.. But in Linux OS, We mount volumes to Directory. 
+
+mkdir newvolume
+
+file -s /dev/xvdf  	--> If this command returns with "data", no file system.
+			--> If this returns ext3/xfs filesystem.. We have a file system.
+
+
+mkfs -t xfs /dev/xvdf		--> Make file system and write it to Additonal volume
+
+mount /dev/xvdf newvolume/	--> mount addl volume to directory
+
+--> Above mount is temp mount only.. it won't available after the instance reboot.
+--> To make this volume perm mount to the directory, Add entry in "/etc/fstab" file.
+--> Get the entry information from "/etc/mtab" file. 
+
+--> cat /etc/mtab		--> Grab the entry related to volume
+
+/dev/xvdf /home/ec2-user/newvolume xfs rw,relatime,attr2,inode64,noquota 0 0
+
+--> vim /etc/fstab.. Write the above entry, save and quit the editor
+
+__________
+--> Increase the volume size the "Cosole" first, then execute the below command..!!
+
+We can use "xfsprogs" to increase existing volume size. 
+yum install xfsprogs
+
+--> xfs_growfs -d /volume-Mountpoint
+--> xfs_growfs -d /home/ec2-user/newvolume
+
+_______________________
+
+GoldenAMI on Linux : 
+
+
+How to recover a Linux instance, if we lost Keyapir..!!!
+Ans : Choose the Instance --> Create a GAMI --> Launch from GAMI with New Keypair.
 
 
 
