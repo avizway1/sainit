@@ -975,6 +975,156 @@ Task 3 : Install webserver is Linux instance, Create a golden AMI of the linux i
 While launching instance from goldenAMi, In final step, choose a new keypair. try to login to instance with both the keypairs. 
 
 
+________________________________________________________________________________________
+
+D: 01/06/2021
+
+EFS : Elastic File System.. : Centralised storage solutions for ec2 instances. 
+
+--> EFS works on NFS (network file system) v4 protocol.
+--> EFS supports only Linux Operating systems. 
+
+_______
+
+Userdata : Bootstrap script : BSS : 
+
+curl http://169.254.169.254/latest/user-data/
+
+Linux : 
+
+#!/bin/bash
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+echo "<h1>BSS Webpage</h1>" >> /var/www/html/index.html
+
+Windows : 
+<script> commands </script>
+<powershell> enter all the commands </powershell>
+
+<script>
+tzutil /s "India Standard Time"
+</script>
+
+_____________
+
+Metadata on ec2 instances :
+
+Linux :  
+curl http://169.254.169.254/latest/meta-data/
+
+Windows : open browser and give url
+ami-manifest-path
+block-device-mapping/
+events/
+hibernation/
+hostname
+identity-credentials/
+instance-action
+instance-id
+instance-life-cycle
+instance-type
+local-hostname
+local-ipv4
+mac
+metrics/
+network/
+placement/
+profile
+public-hostname
+public-ipv4
+public-keys/
+reservation-id
+security-groups
+
+___________________
+
+Placement Groups : How ec2 instances placed in AWS physical environment.
+
+--> Cluster PG  : Low network latency and high network throuput
+--> Partition PG : HDFS (hadoop distributed file system), Datawaregousing
+--> Spread PG
+
+__________________
+
+Elastic beanstalk : PaaS : 
+
+Developers team : php/python : They need platform to delopy the code.. 
+
+_________________
+
+Tenancy : 
+--> Shared Tenancy / Default : underlying h/w shares with multiple customers.
+--> Dedicated Tenancy : Won't share with anyone. Dedicated to our ec2 instance only.
+	--> Dedicated Instance : Less backend visualisation.
+	--> Dedicated Host : More backend visualisation, We can apply licenses at hardware level (CPU Cores, Memory slots)
+
+
+AWS User XEN Hypervisor.. Nitro hypervisor (AWS own)
+
+_________________
+
+Status checks detect problems that may impair/impact our ec2 instance from running your applications.
+	--> System Status Check : Underlying hardware level issues.
+	--> Instance status check : OS level issues
+
+Stop and Start the instance when system status checks are failing.
+
+________________
+
+Cloudwatch : Monitoring service in AWS environment.
+--> Using CW, we can monitor CPU, Network, Disk. 
+--> We cannot monitor "Memory (RAM) Usage" of an ec2 instance. (We need to create custom metrics to monitor Memory usage).
+
+2 types of monitorings available in AWS: 
+--> Basic Monitoring : Monitoring interval is 5 Min.
+--> Detailed Monitoring : Monitoring interval is 1 Min.
+
+_____________________________
+
+ELB, ASG, CLI, Roles, System Manager
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
