@@ -1080,9 +1080,29 @@ Cloudwatch : Monitoring service in AWS environment.
 --> Basic Monitoring : Monitoring interval is 5 Min.
 --> Detailed Monitoring : Monitoring interval is 1 Min.
 
-_____________________________
+____________________________________________________________________________________
 
-ELB, ASG, CLI, Roles, System Manager
+D: 02/06/2021
+
+--> Classic ELB : http, https, tcp, udp (Outdated / previous generation)
+--> Application LB (ALB) : http & https
+--> Network ELB (NLB) : tcp, udp, tls
+
+FOe ELB, We won;t get any IP address, We will get DNS names.
+
+--> For classic/application, we don't have choice to associate IP address. 
+--> FOr Network ELB, We can allocate an EIP. 
+
+#!/bin/bash
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+echo "<h1>This is my WebServer 8080 </h1>" >> /var/www/html/index.html
+
+_____________
+
+
+
 
 
 
