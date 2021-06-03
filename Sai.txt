@@ -1101,6 +1101,40 @@ echo "<h1>This is my WebServer 8080 </h1>" >> /var/www/html/index.html
 
 _____________
 
+D: 03/06/2021
+
+
+ASG : Auto Scaling group :
+
+--> create a GoldenAMI
+--> Create an ELB (Empty/plain)
+--> COnfigure ASG
+	--> Create a launch configuration (AMI, SG, VPC)
+	--> Create an ASG
+
+_____________________________
+
+AWS Management console access : Un, Pwd & Signi url
+Programatic Access : AccessKeyID and SecretAccesskey --> generate this
+
+
+Install : https://aws.amazon.com/cli/
+
+Using CLI is not secured.. We always use roles..
+
+aws configure
+AccessKeyid :
+SecretAccessKey :
+Region : 
+output : 
+
+
+https://awsclibuilder.com/home
+
+
+
+
+
 
 
 
