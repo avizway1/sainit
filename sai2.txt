@@ -1,0 +1,65 @@
+DNS : Domain Naming System/Service : Name to Ip address and IP address to name.. 
+
+
+ec2 --> IP Addrs --> DOmain Name..???
+
+DOmain Registrers : Sells the Domain Name :  Godaddy, Bigrock, web.com, aws.. 
+ICANN : Maintains the domain uniqueness
+IANA : Maintains root zone database.
+
+google.com
+avinash.com
+.com	--> TLD (Top Level Domain names)
+.gov.in	--> SLD (Second Level Domain names)
+
+
+Freenom.com --> Gives free domains
+
+Step 1 : Purchase a Domain Name.  (GoDaddy/Freenom)
+
+Step 2 : Create HostedZOne in AWS. hostedzone name should be same as Domain Name.
+(0.50$/HostedZone)
+
+--> NS Record : Name Server Record
+--> SOA Record : Start of Authority Record
+
+Step 3 : Grab the Name Server Information, and Enter this values in "Domain Registrer".
+
+_______
+
+
+Simple RP : 
+Weighted RP : 
+Latency RP :
+Geolocation RP :
+Failover RP : 
+MultiVlue Answer RP :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

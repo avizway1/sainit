@@ -1159,7 +1159,14 @@ Instance store volumes : Also called as Ephemeral Storages. (Temparary storage).
 
 _____________________________________________
 
+Task : Launch an Linux ec2 instance, and Make it as webserver using "Run Command".
 
+Task 2 : Launch a windows instance, Set India Standard Time using "Run Command".
+
+Task 3 : Use Windows Rescue tool to reset the password. 
+
+
+https://www.youtube.com/watch?v=pQtwl_2D8O8
 
 
 
