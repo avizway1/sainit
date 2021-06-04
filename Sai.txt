@@ -1131,109 +1131,33 @@ output :
 
 https://awsclibuilder.com/home
 
+___________________________________________________________________________________
 
+D: 04/06/2021
 
+SSM : Systems Manager : 
+--> Install / uninstall anything without logging to instance
+--> If you want to patch
+--> If you want to recover instances.
 
+SSM uses tags to filter the ec2 instances.
+EC2 instances must have valid role.
 
+--> We will have an SSM agent in ec2 instance. This agent will do the tasks we trigger via ssm console.
 
+AWSSupport-RunEC2RescueForWindowsTool : TO reset ec2 instance Administrator password.
 
+______________________________________
 
 
+--> ALong with EBS volumes, We have Instance store.
 
+Instance store volumes : Also called as Ephemeral Storages. (Temparary storage).
+--> If something happens to underlying hardware we will loss all the data.
+--> We cannot perform stop/start operation.
+--> Due to any reason if instance stops, we loss all the data.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+_____________________________________________
 
 
 
