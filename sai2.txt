@@ -35,6 +35,22 @@ Geolocation RP :
 Failover RP : 
 MultiVlue Answer RP :
 
+#!/bin/bash
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+echo "<h1> United STates WebServer </h1>" >> /var/www/html/index.html
+
+A Record : Address Record : IP <--> Name
+Alias Record : AWS own Record : We always use A+Alias in AWS environment.
+
+
+
+Videos : https://vimeo.com/517001979
+Password : NaResH@%AWS
+
+
+
 
 
 
