@@ -45,9 +45,94 @@ A Record : Address Record : IP <--> Name
 Alias Record : AWS own Record : We always use A+Alias in AWS environment.
 
 
-
 Videos : https://vimeo.com/517001979
 Password : NaResH@%AWS
+
+_________________________________________________________________________________________
+
+D: 08/06/2021
+
+
+CIDR : CLassless Inter Domain Routing. 
+
+AWS Supports max: /16, Min /28
+AWS Reservs 5 IP addresses.
+2 --> Regular Network (Network ID/First IP, Broadcost IP/Last IP)
+2 --> AWS Reserves for DNS Servers
+1 --> Future Use
+
+
+10.0.0.0 - 10.255.255.255
+172.16.0.0 - 172.31.0.0
+192.168.0.0 - 192.168.255.255
+
+Visual Subnet Calculator : 
+
+
+Public Subnets : Internet Facing : JUmp Server / ELB
+Private SUbnets : Internal Subnet : Web Server, Db server, Imp resources
+
+
+VPC : 192.168.0.0/16
+
+192.168.0.0/18
+192.168.64.0/18
+
+Step 1 : Create a VPC : CustomVPC : CIDR: 192.168.0.0/16
+
+Step 2 : Create Subnets under CUstomVPC : 2 SUbnets
+
+Public Subnet : ap-south-1a : CIDR 192.168.0.0/19 
+Private Subnet : ap-south-1b : CIDR 192.168.32.0/19 
+
+Step 3 : Create an Internet Gateway/ IGW and associate with CustomVPC.
+
+Step 4 : Create RouteTable and add required routes, Then perform subnet associations.
+
+Public Route : 
+--> add a route 0.0.0.0/0 via Internet Gateway.
+--> Navigate to Subnet Association : Associate "Public Subnets".
+
+Private Route : 
+--> Navigate to Subnet Association : Associate "Private Subnets".
+--> As no route via IGW, these resources cannot access internet.
+
+Step 5 : (optional) : Enable "Auto Assign Public IP" settings for Public SUbnet instances.
+
+JUmp Server / Bastian Host : A dedicataed ec2 instance, runs in CUsrtomVPC's Public SUbnet.. Used to connect to all private subnet ec2 instances.
+
+
+How to provide internet to Private SUbnet Instances.
+Ans : NAT Gateway. 
+
+NAT gateway runs in CustomVPC "Public Subnet", provides internet to Private SUbnet Resources.
+
+EIP : Elastic IP address : It will Cost us. 
+--> Once you deleted NAT Gateway, Release the EIP.
+____
+
+We have NAT Instances also.. But we don;t use this in Real Environment..!! Not stable / One modification efect entire private subnet resources.
+
+--> NAT Instance runs in CustomVPC "Public Subnet", provides internet to Private SUbnet Resources.
+--> Open http and https ports on NAT Instance
+--> Disable "Source/Destination check" on ec2 instance.
+
+________________________________________________________________________________________
+
+NACLs : 
+How to allow the traffic / Deny the traffic.
+
+How to Enable communication between Multiple VPC.
+
+Endpoints
+
+
+
+
+
+
+
+
 
 
 
