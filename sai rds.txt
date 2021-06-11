@@ -1,0 +1,42 @@
+RDS : Relational Database Service : RDS supports 6 relational db engines.
+--> Amazon Aurora : (postgresql / mysql compatable)
+--> Mysql	: Mysql Workbench
+--> MS Sql	: microsoft ssms (sql server management studio)
+--> postgreSQL	: Pgadmin
+--> Mariadb	: workbench
+--> Oracle	: oracle tool, Toad
+
+Heterogenious Migration : mariadb --> RDS --> SCP (Schema Convertion tool) --> mysql
+Homogenious Migration :  mysql --> mysql 
+
+__
+
+
+un : admin
+pwd : Avinash123
+
+Free tier : db.t2.micro
+
+Storage : 20gb 
+Storage autoscaling : storage adds automatically. (5 gb storage / 10% of existing storage)
+
+mysql : 3306
+
+AUtomatic Backups for RDS : Enable
+--> AWS Creates backup copies automatically for the RDS instances.
+
+Backup retention period : How many daya backup copies you want to hold/have in your account to restore.
+
+Retention period : Default : 7 Days, Min : 1 Day, Max : 35 Days
+
+_____________________________
+
+--> We won;t get any IP address for Database, We will get DB Endpoint. 
+
+
+Free Tier : db.t2.micro , 750 Hrs/Month.. 
+
+
+
+
+
