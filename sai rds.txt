@@ -31,10 +31,63 @@ Retention period : Default : 7 Days, Min : 1 Day, Max : 35 Days
 
 _____________________________
 
---> We won;t get any IP address for Database, We will get DB Endpoint. 
+--> We won't get any IP address for Database, We will get DB Endpoint. 
 
 
 Free Tier : db.t2.micro , 750 Hrs/Month.. 
+
+_______________________________________________________________________________________
+
+D: 14/06/2021
+
+--> MultiAZ Deployment : No DOwntime required for our RDS instance, If our DB contains lot of sensitive information.
+Creates a standby in a different Availability Zone (AZ) to provide data redundancy, eliminate I/O freezes, and minimize latency spikes during system backups.
+
+
+--> Read Replica : Whenever we are getting lot of read operations on our database and if we want to offload read operations from primary copy, We can enable read replicas.
+
+	--> We can create Read replica in another Region also.
+--> If required, we can promote read replica as individual db instance.
+--> Once replication breakdown, we cannot re establish the connection.
+
+
+
+Backup : 
+--> System Backup / Automated Backup : 
+	--> Managed by AWS.
+	--> We cannot delete these Backups, If we delete RDS instance, these deletes automatically.
+	--> We can reduse the backup retention period to reduse the backup copies count.
+
+--> Manual Backup : Manually we can create a Snapshot.
+	--> Manual snapshots, we need to delete. 
+
+
+--> We can initiate a restoration in case of any db failure. Point-in-time copy option.
+--> RDS won't use In-place restoration.  When we restore, we will get a new copy of the rds instance. 
+
+
+Task : Launch RDS Instance and Create a Read replica. 
+
+Task 2 : Create a Wordpress website. LAMP (Linux Apache Mysql Php)
+
+wp-config.php under /var/www/html/		--> COpy the script and keep it.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
