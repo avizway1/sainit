@@ -72,6 +72,91 @@ Task 2 : Create a Wordpress website. LAMP (Linux Apache Mysql Php)
 
 wp-config.php under /var/www/html/		--> COpy the script and keep it.
 
+_______________________________________________________________________________________
+
+D: 17/06/2021
+
+Amazon Aurora db : 
+--> Amazons own DB solutions. 
+--> 2 compatable versions:
+	--> Mysql Compatable  : mysql workbench
+	--> postgreSQL compatable : pgadmin
+
+--> Aurora database clusters with up to 128TB of storage. Remaining all DB supports only 16TB.
+--> Aurora have Server version and Serverless version.
+--> NO FREE TIER ELIGIBILITY.
+
+Serverless : You specify the minimum and maximum amount of resources needed, and Aurora scales the capacity based on database load. This is a good option for intermittent or unpredictable workloads.
+
+Minimum and Maximum Aurora capacity unit	: 2gb ram, 256 gb max
+
+____________________
+
+Dynamodb : Serverless architecture : NoSQL Database service : Single digit millisecond latency at any scale.. IoT, Mobile gaming, adtec.. 
+Latency : Response time
+
+--> Choose how many read & write capacity units you required. We can enable Autoscaling also.
+
+_______
+
+DAX : Dynamodb Accelerator : In-Memory caching solution for DynamoDB.. 
+
+_________
+
+RDS Caching Solution : ELasticache
+--> Elasticache supports 2 caching engines
+	--> MemcacheD
+	--> Redis
+_________
+AWS Own Datawarehousing solution : RedShift
+
+_________________________
+
+DMS : Database Migration Service : 
+
+Homogenious Migration : Mysql (on-prem) --> DMS --> Mysql (rds)
+HeteroGenious migration : IBM db2 (on-prem) --> SCT (Schema convertion tool) --> DMS --> Mysql (rds)
+
+https://www.youtube.com/watch?v=iRhJDGp-ew8
+
+____________________________________________________
+
+Security Services : 
+
+CloudTrail : Logging service in AWS. It stores last 90 Days information by defaultly. We can create a trail to s3 to have logs for unlimited days. 
+
+Management events : Capture management operations performed on your AWS resources.
+
+Data events : Log the resource operations performed on or within a resource. 
+S3, Dynamodb, Lambda
+
+Insights events : Identify unusual activity, errors, or user behavior in your account.
+
+___
+
+Amazon Config : Works along with Cloudtrail. Inventory service in AWS. (COST US)
+--> We can setup complinace standards for our resources.
+--> We can even get resource timelime. 
+
+
+No s3 bucket should be made public. : Non-Compliance Resouce.
+Snapshot : Public --> RULE 
+
+IAM User --> S3Readonly --> S3FullAccess.. --> AdminAccess 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
