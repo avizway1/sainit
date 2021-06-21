@@ -1,0 +1,22 @@
+Lambda : Serverless Architecture : 
+
+Python, GO, Node.js, Ruby, java, .Net Core
+
+We have an IDE within Browser, Write anything and run the code. 
+
+EC2 : t2.micro.. 1 req/sec.. 10 Req/sec.. /Hr /Sec
+Lambda : How many requests we got for the resource.. / How many minutes our code run.
+
+____
+
+Canary Function : Code Phython
+
+https://www.google.com/	--> Google
+
+https://egghead.io/courses/learn-aws-lambda-from-scratch-d29d
+
+https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html
+
+cron(0/15 * * * ? *)
+
+
