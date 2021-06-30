@@ -19,4 +19,95 @@ https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule
 
 cron(0/15 * * * ? *)
 
+________________________________________________________________
+
+D: 29/06/2021
+
+Browser extrnsion : AWS COnsole Recorder.. 
+
+IDE : visual studio, netbeans, eclipse.. AWS Have it's own tool "Cloud9"
+
+
+node --version
+cdk --version
+
+npm install -g aws-cdk				--> Install cdk
+cdk init sample-app --language typescript	--> Initialise proj 
+
+
+ * `npm run build`   compile typescript to js
+ * `npm run watch`   watch for changes and compile
+ * `npm run test`    perform the jest unit tests
+ * `cdk deploy`      deploy this stack to your default AWS account/region
+ * `cdk diff`        compare deployed stack with current state
+ * `cdk synth`       emits the synthesized CloudFormation template
+
+
+cdk bootstrap
+cdk synth
+cdk deploy
+cdk diff
+
+https://cdkworkshop.com/30-python.html
+
+____________
+
+ECS : 
+
+AWS uses XEN / Nitro Hypervisor. 
+
+ECS : Elastic Container Service : AWS Own service
+ECR : Elastic container registery : repository to store images
+EKS : Elastic Kubernates Service : 
+
+
+ECS : 
+--> EC2 : We will get an ec2 instance, docker runs with in instance.. App perf/resource utilisation depends on ec2 configurtion.
+--> Fargate : ECS manages everything, Based on load it scales.
+
+Task Defination : Contains information about what image, what configuration, network.. 
+
+Login
+docker build -t avinashnginx .
+docker tag avinashnginx:latest 
+docker push
+
+
+AWS Pricing Calculator: 
+
+https://calculator.s3.amazonaws.com/index.html
+https://calculator.aws/#/
+
+
+_________________________________________________________________________________
+
+
+Directory service : https://www.youtube.com/watch?v=RDlBoAHVmZs
+AD Connector : https://www.youtube.com/watch?v=Ca259gg6SoM
+
+Endure migration : https://www.youtube.com/watch?v=8xf1RpPdcHs
+DMS / Database Migration : https://www.youtube.com/watch?v=iRhJDGp-ew8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
